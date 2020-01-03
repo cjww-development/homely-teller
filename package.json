@@ -1,0 +1,20 @@
+{
+  "name": "homely-teller",
+  "version": "1.0.0",
+  "description": "Lambda to support the homely-teller alexa skill",
+  "main": "handler.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjww-development/sqs-firestore-orchestrator-lambda.git"
+  },
+  "keywords": [],
+  "author": "CJWW Development",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjww-development/homely-teller/issues"
+  },
+  "homepage": "https://github.com/cjww-development/homely-teller#readme"
+}
