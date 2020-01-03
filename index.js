@@ -1,12 +1,5 @@
-/* *
- * This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK (v2).
- * Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
- * session persistence, api calls, and more.
- * */
 const Alexa = require('ask-sdk-core');
-// i18n library dependency, we use it below in a localisation interceptor
 const i18n = require('i18next');
-// i18n strings for all supported locales
 const languageStrings = require('./languageStrings');
 
 const LaunchRequestHandler = {
@@ -33,7 +26,21 @@ const HelloWorldIntentHandler = {
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};
+
+const HelloWorldIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'TemperatureTellerIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput =
+            handlerInput.t('TEMPERATURE_MSG') +15 + handlerInput.t('TEMPERATURE_MSG_1') + 60 + handlerInput.t('TEMPERATURE_MSG_2');
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
             .getResponse();
     }
 };
