@@ -16,7 +16,7 @@ jobs:
       - name: Configure aws cli
         run: |
           aws configure set output json
-          aws configure set region eu-west-2
+          aws configure set region eu-west-1
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
@@ -25,4 +25,4 @@ jobs:
           npm install --verbose
           aws s3 sync s3://homely-secrets .
           zip -r homely-teller.zip .
-          aws lambda update-function-code --function-name homely-teller --zip-file fileb://homely-teller.zip --region eu-west-2
+          aws lambda update-function-code --function-name homely-teller --zip-file fileb://homely-teller.zip --region eu-west-1
