@@ -2,7 +2,7 @@
   "name": "homely-teller",
   "version": "1.0.0",
   "description": "Lambda to support the homely-teller alexa skill",
-  "main": "handler.js",
+  "main": "index.js",
   "scripts": {
     "test": ""
   },
@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/cjww-development/homely-teller/issues"
   },
-  "homepage": "https://github.com/cjww-development/homely-teller#readme"
+  "homepage": "https://github.com/cjww-development/homely-teller#readme",
+  "dependencies": {
+    "ask-sdk-core": "^2.7.0",
+    "ask-sdk-model": "^1.25.1",
+    "aws-sdk": "^2.597.0",
+    "i18next": "^19.0.2"
+  }
 }
