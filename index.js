@@ -17,7 +17,7 @@
 
 const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
-const languageStrings = require('./languageStrings');
+const languageStrings = require('./app/i18n/LanguageStrings');
 const intents = require("./app/intents/IntentHandlers");
 
 const LaunchRequestHandler = {
