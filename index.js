@@ -19,6 +19,7 @@ const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 const languageStrings = require('./app/i18n/LanguageStrings');
 //const intents = require("./app/intents/IntentHandlers");
+const repos = require("./app/database/DatabaseRepositories");
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -40,8 +41,15 @@ const TemperatureTellerIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'TemperatureTellerIntent';
     },
     handle(handlerInput) {
-        const speakOutput =
-            handlerInput.t('TEMPERATURE_MSG') +15 + handlerInput.t('TEMPERATURE_MSG_1') + 60 + handlerInput.t('TEMPERATURE_MSG_2');
+
+
+        return repos.envData.raw.collection(repos.envData.collectionName).orderBy("collectedAt").get().then(docs => {
+            const doc = docs.docs[0].data();
+            const tempC = doc["temperature-c"];
+            const humidity = doc.humidity;
+            const speakOutput =
+                handlerInput.t('TEMPERATURE_MSG') + tempC + handlerInput.t('TEMPERATURE_MSG_1') + humidity + handlerInput.t('TEMPERATURE_MSG_2');
+        });
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
