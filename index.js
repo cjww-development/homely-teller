@@ -41,19 +41,16 @@ const TemperatureTellerIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'TemperatureTellerIntent';
     },
     handle(handlerInput) {
-
-
         return repos.envData.raw.collection(repos.envData.collectionName).orderBy("collectedAt").get().then(docs => {
             const doc = docs.docs[0].data();
             const tempC = doc["temperature-c"];
             const humidity = doc.humidity;
-            const speakOutput =
-                handlerInput.t('TEMPERATURE_MSG') + tempC + handlerInput.t('TEMPERATURE_MSG_1') + humidity + handlerInput.t('TEMPERATURE_MSG_2');
-        });
+            const speakOutput = handlerInput.t('TEMPERATURE_MSG') + tempC + handlerInput.t('TEMPERATURE_MSG_1') + humidity + handlerInput.t('TEMPERATURE_MSG_2');
 
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .getResponse();
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse();
+        });
     }
 };
 
