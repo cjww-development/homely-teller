@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-module.exports.LaunchRequestHandler = require("LaunchRequestHandler");
-module.exports.TemperatureTellerHandler = require("TemperatureTellerHandler");
-module.exports.HelpIntentHandler = require("HelpIntentHandler");
-module.exports.CancelAndStopHandler = require("CancelAndStopHandler");
-module.exports.FallbackHandler = require("FallbackHandler");
-module.exports.SessionEndedRequestHandler = require("SessionEndedRequestHandler");
-module.exports.IntentReflectorHandler = require("IntentReflectorHandler");
-module.exports.ErrorHandler = require("ErrorHandler");
+module.exports.LaunchRequestHandler = require("./LaunchRequestHandler");
+module.exports.TemperatureTellerHandler = require("./TemperatureTellerHandler");
+module.exports.HelpIntentHandler = require("./HelpIntentHandler");
+module.exports.CancelAndStopHandler = require("./CancelAndStopHandler");
+module.exports.FallbackHandler = require("./FallbackHandler");
+module.exports.SessionEndedRequestHandler = require("./SessionEndedRequestHandler");
+module.exports.IntentReflectorHandler = require("./IntentReflectorHandler");
+module.exports.ErrorHandler = require("./ErrorHandler");
 module.exports.enabled = [
-    require("LaunchRequestHandler"),
-    require("TemperatureTellerHandler"),
-    require("HelpIntentHandler"),
-    require("CancelAndStopHandler"),
-    require("FallbackHandler"),
-    require("SessionEndedRequestHandler"),
-    require("IntentReflectorHandler"),
-    require("ErrorHandler"),
+    require("./LaunchRequestHandler"),
+    require("./TemperatureTellerHandler"),
+    require("./HelpIntentHandler"),
+    require("./CancelAndStopHandler"),
+    require("./FallbackHandler"),
+    require("./SessionEndedRequestHandler"),
+    require("./IntentReflectorHandler"),
+    require("./ErrorHandler"),
 ];
